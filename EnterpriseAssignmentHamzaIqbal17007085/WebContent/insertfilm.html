@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add new film</title>
+<link rel="stylesheet"
+      href="./css/style2css.css"
+      type="text/css"/>
+   
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+			var form = $('#form3');
+			
+			form.submit(function (e) {
+			 e.preventDefault();
+			$.ajax({
+			type: form.attr('method'),
+			url: form.attr('action'),
+			data: form.serialize(),
+			success: function (data) {
+			var result=data;
+			$('.result1').text(result);
+			}
+			});
+			 
+			return false;
+			});
+			
+			
+			
+ });
+			</script>
+        
+       
+</head>
+<body>
+<h1 class= "head">Add a new film</h1>
+
+
+<div class = "formout">
+<div class = "innerform">
+<form method="GET" action="./insertfilm" name = "form3" id = "form3">
+<table border="1" cellpadding="5">
+	<tr>
+	<th>ID</th>
+	<th>TITLE</th>
+	<th>YEAR</th>
+	<th>DIRECTOR</th>
+	<th>STARS</th>
+	<th>REVIEWS</th>
+	<th>ACTION</th>
+	</tr>
+	
+	
+	<tr>
+	<td>
+	<input type="text" name = "ID">
+	</td>
+	<td>
+	<input type = "text" name = "Filmname">
+	</td>
+	<td>
+	<input type = "text" name ="Year">
+	</td>
+	<td>
+	<input type = "text" name= "Director">
+	</td>
+	<td>
+	<input type = "text" name = "Stars">
+	</td>
+	<td>
+	
+	<textarea name = "Reviews" id="Reviews" rows="6" cols="50"></textarea>
+	</td>
+	<td>
+	<INPUT TYPE="submit"  VALUE="SUBMIT"        />
+	</td>
+	</tr>
+	</table>
+</form>
+<div class = "result1"></div>
+
+<a href = "Filmeditjsp.jsp">VIEW ALL FILMS</a>
+</div>
+</div>
+
+        
+</body>
+
+</html>
+

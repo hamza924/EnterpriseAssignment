@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>TEST DATAPAGE</title>
+<link rel="stylesheet"
+      href="./css/style2css.css"
+      type="text/css"/>
+      
+      
+      
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+			var form = $('#form3');
+			
+			form.submit(function (e) {
+			 e.preventDefault();
+			$.ajax({
+			type: form.attr('method'),
+			url: form.attr('action'),
+			data: form.serialize(),
+			success: function (data) {
+			var result=data;
+			$('.result1').text(result);
+			}
+			});
+			 
+			return false;
+			});
+			
+			
+			
+			
+			
+			
+			
+			
+ });
+			</script>
+</head>
+<body>
+	
+	<h1 class = "head"> Enterprise Assignment By HAMZA HASSAN IQBAL</h1>
+	
+		<div class = "nav">
+		<div class = "innernav">
+		<ul>
+		<li style="list-style:none">
+		<a href = "insertfilm.html" class = "link">ADD FILM</a>
+		<a href = "Filmeditjsp.jsp" class = "link">FILM MANAGMENT</a>
+		<a href = "getfilmbyname.html" class= "link">SEARCH FOR FILM</a>
+		</li>
+		
+		</ul>
+		</div>
+		</div>
+		<div class = "con">
+			<p class = "text">Click on any three of the buttons to show the data in the chosen formats.</p>
+		</div>
+	<div class = "btn">
+	<div class = "loc">
+		<FORM METHOD="GET" ACTION="./ControllerServlet"  id = "json">
+		<INPUT TYPE="submit" NAME="format" VALUE="json"/>
+		</FORM>
+		
+		
+		
+		 <FORM METHOD="GET" ACTION="./ControllerServlet"  id  = "xml">
+		<INPUT TYPE="submit" NAME="format" VALUE="xml"/>
+		</FORM>
+		
+		
+		
+		 <FORM METHOD="GET" ACTION="./ControllerServlet" id = "string">
+		<INPUT TYPE="submit" NAME="format" VALUE="string"/>
+		</FORM>
+		</div>
+	</div>
+
+</body>
+</html>

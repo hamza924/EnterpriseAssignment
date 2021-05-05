@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GET FILM BY NAME</title>
+<link rel="stylesheet"
+      href="./css/style2css.css"
+      type="text/css"/>
+      
+      
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+
+ <script type="text/javascript">
+ $(document).ready(function() {
+			var form = $('#form3');
+			
+			form.submit(function (e) {
+			 e.preventDefault();
+			$.ajax({
+			type: form.attr('method'),
+			url: form.attr('action'),
+			data: form.serialize(),
+			success: function (data) {
+			var result=data;
+			$('.result1').text(result);
+			}
+			});
+			 
+			return false;
+			});
+			
+			
+			
+			
+			
+			
+ });
+			</script>
+</head>
+<body>
+
+<h1 class = "head">Search film by name or letter </h1>
+
+<a href ="index.html">GO BACK</a>
+<FORM METHOD="GET" ACTION="./getfilmname" name = form3 id ="form3">
+	<label>ENTER FILM NAME</label> <input type  = "text" name ="Filmname">
+
+	<INPUT TYPE="submit"  VALUE="Search"/>
+	</FORM>
+	
+	<div class = "result1"></div>
+
+
+
+</body>
+</html>
